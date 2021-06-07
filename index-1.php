@@ -11,7 +11,7 @@ $discList = require "./db/disc.php";
 
 function renderDiscs($disc_list) 
 {
-    $to_return = [];
+    $to_return = "";
 
     foreach ($disc_list as $disc) {
        $poster = $disc["poster"];
@@ -20,31 +20,31 @@ function renderDiscs($disc_list)
        $genre = $disc["genre"];
        $year = $disc["year"];
         
-        $to_return[] = "<div class='album'>";
+        $to_return .= "<div class='album'>";
 
-            $to_return[] = "<a class='cover_link' href='#'>";
+            $to_return .= "<a class='cover_link' href='#'>";
 
-                $to_return[] = "<img src='$poster' alt='album music poster'>";
+                $to_return .= "<img src='$poster' alt='album music poster'>";
 
-                $to_return[] = "<div class='overlay'>";
-                    $to_return[] = "<i class='fas fa-play-circle'></i>";
-                $to_return[] = "</div>";
+                $to_return .= "<div class='overlay'>";
+                    $to_return .= "<i class='fas fa-play-circle'></i>";
+                $to_return .= "</div>";
             
-            $to_return[] = "</a>";
+            $to_return .= "</a>";
 
-            $to_return[] = "<div class='song_title'>";
+            $to_return .= "<div class='song_title'>";
 
-                $to_return[] = "<h3>$title</h3>";
-                $to_return[] = "<h4>$author</h4>";
-                $to_return[] = "<span class='date'>$genre</span>";
-                $to_return[] = "<span class='date'>$year</span>";
+                $to_return .= "<h3>$title</h3>";
+                $to_return .= "<h4>$author</h4>";
+                $to_return .= "<span class='date'>$genre</span>";
+                $to_return .= "<span class='date'>$year</span>";
 
-            $to_return[] = "</div>";
+            $to_return .= "</div>";
 
-        $to_return[] = "</div>";
+        $to_return .= "</div>";
     };
 
-    return implode("\n", $to_return);
+    return $to_return;
 }
 
 // echo renderDiscs($discList); 
